@@ -27,7 +27,7 @@ export default function Map() {
     getPosition,
   } = useGeolocation();
 
-  const [mapLat, mapLng] = useUrlPosition();
+  const [mapLng, mapLat] = useUrlPosition();
 
   useEffect(() => {
     if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
@@ -82,7 +82,6 @@ function DetectClick() {
   const navigate = useNavigate();
   useMapEvents({
     click: (e) => {
-      console.log(e);
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
